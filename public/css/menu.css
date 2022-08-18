@@ -1,0 +1,641 @@
+  html,body{
+    margin:0px;
+    height:100%;
+  }
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+  body{
+    color: #ececee;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 4%;      
+  }
+
+  .navbar{
+    box-shadow: 5px 10px 8px rgba(138, 155, 165, 0.15);
+  }
+
+  .navbar .container-fluid{
+    background-color : rgb(255, 225, 225);
+  }
+
+  .navbar .navbar-brand img {
+    height: 100px;
+	  width: auto;
+	  display: block;
+    position:absolute;
+    margin-top:-32px;
+    margin-left:-20px;
+  }
+
+  .navbar .navbar-brand img:hover{
+    animation: wave-animation 0.5s;
+  }
+
+  @keyframes wave-animation {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(20deg);
+    }
+    75% {
+      transform: rotate(-15deg);
+    }
+  }
+
+  .navbar li{
+    border-left: 4px solid white;
+  }
+
+  /*Cart Window*/
+
+  .cart-window{
+    position:absolute;
+    background-color: whitesmoke;
+    border-top: 4px solid rgb(255, 199, 199);
+    border-left: 2px solid rgb(255, 199, 199);
+    border-right: 2px solid rgb(255, 199, 199);
+  }
+
+  .hide{
+    display:none;
+  }
+
+  .food-cart-items{
+    max-height:250px;
+    overflow-y:auto;
+  }
+
+  .food-item{
+    border-bottom: 3px solid rgb(255, 199, 199);
+  }
+  
+  .image-adj{
+    width: 100%; /* or any custom size */
+    height: auto; 
+    object-fit: contain;
+  }
+
+  .image-col{
+    max-width:100px !important;
+  }
+
+  .flex-grow-1{
+    min-width: 0;
+  }
+
+  .redundant-block{
+    background-color:rgb(255, 225, 225);
+  }
+
+  .price-summary-cart{
+    border-top:3px solid rgb(255, 118, 118);
+  }
+
+  .quantity{
+    border-right: 2px solid rgb(0, 0, 0);
+  }
+
+  .fa-basket-shopping{
+    cursor:pointer;
+  }
+
+  .fa-basket-shopping:active {
+  transform: translateY(4px);
+}
+
+  .cartbadge{
+    top:0;
+    right:0;
+  }
+  
+  /* Review Order Button*/
+
+  .review-btn {
+    width: 90%;
+    position: relative;
+    display: inline-block;
+    border-radius: 30px;
+    background-color: #fcfcfc;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    padding: 9px 0;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+    text-decoration:none;
+  }
+  .review-btn .btn-icon {
+    background-color: #ffa000;
+    width: 92px;
+    height: 40px;
+    float: right;
+    position: absolute;
+    border-radius: 30px 30px 30px 0;;
+    right: 0px;
+    top: 0px;
+    transition: all 0.3s;
+  }
+  .name-descripeion {
+    position: relative;
+    z-index: 9999;
+  }
+  .btn-icon::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 45px solid #fcfcfc;
+    border-right: 40px solid transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .review-btn:hover .btn-icon {
+    width: 100%;
+    border-radius: 30px;
+  }
+  .review-btn:hover .btn-icon::after {
+    display: none;
+    opacity: 0.1;
+  }
+  .btn-icon i {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    color: #fff;
+  }
+  .review-btn:hover {
+    color: #fff!important;
+  }
+  .heart {
+    background-color: #ff586b!important;
+  }
+
+  /*Selection Screen*/
+  .selectionmenu .row{
+    height:auto;
+  }
+
+  .selectionmenu .row .col-6{
+    font-size: calc(60% + 0.3vw + 0.3vh);
+  }
+
+  .selectionmenu .row .col-6 a{
+    text-decoration:none;
+  }
+
+  .selectionmenu .row .col-12 a{
+    text-decoration:none;
+  }
+
+  .selectionmenu .row .col-6 .d-flex{
+    height: 50vh;
+  }
+
+  .menu1{
+    color:white !important;
+    background-image: url("/images/sushi-bg-1.jpg");
+    background-size:cover;
+    -webkit-filter: grayscale(70%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(70%);
+  }
+
+  .menu2{
+    color:white !important;
+    background-image: url("/images/sushi-bg-2.jpg");
+    background-size:cover;
+    -webkit-filter: grayscale(70%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(70%);
+  }
+
+  .menu3{
+    color:white !important;
+    background-image: url("/images/sushi-bg-3.jpg");
+    background-size:cover;
+    -webkit-filter: grayscale(70%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(70%);
+  }
+
+  .menu1:hover{
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+  }
+
+  .menu2:hover{
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+  }
+
+  .menu3:hover{
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+  }
+
+  /*View Cart Btn*/
+  .viewcartbtn{
+    border: 4px solid #fc939f;
+    background-position: center;
+    transition: background 0.8s;
+    background-color: rgb(255, 168, 168);
+    cursor:pointer;
+  }
+
+  .viewcartbtn:hover {
+    background: rgb(255, 154, 154) radial-gradient(circle, transparent 1%, rgb(255, 153, 153) 1%) center/15000%;
+  }
+
+  .viewcartbtn:active {
+    background-color: rgb(253, 123, 123);
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+  .viewcartbtn .badge{
+    border: 3px solid white;
+  }
+
+  .viewcartbtn span{
+    pointer-events:none;
+  }
+
+  /*SideBar Menu*/
+  .wrapper {
+    display: flex;
+    align-items: stretch;
+    min-height:100%;
+    max-height:100%;
+  }
+
+  .categories{
+    overflow-y:auto;
+    max-height:80%;
+    direction: rtl
+  }
+
+  #sidebar {
+      min-width: 200px;
+      max-width: 200px;
+      border-top: 4px solid rgb(255, 199, 199);
+      border-right: 2px solid rgb(255, 199, 199);
+      max-height:100%;
+  }
+
+  #sidebar {
+      background: rgb(255, 225, 225);
+      color: rgb(0, 0, 0);
+      transition: all 0.3s;
+  }
+
+  #sidebar .sidebar-header {
+      background-image: url("/images/sushi-bg-3.jpg");
+      background-size:cover;
+      padding: 20px;
+      border-bottom: 2px solid rgb(250, 179, 179);
+  }
+
+  #sidebar ul li{
+    border-bottom:3px solid white;
+    text-align: center;
+    margin:6px;
+  }
+
+  #sidebar ul li a {
+      padding: 10px;
+      font-size: 1.1em;
+      display: block;
+      color: #566473;
+      text-shadow: none;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.8s;
+  }
+  
+  #sidebar ul li a:hover {
+      background: rgb(255, 235, 235) radial-gradient(circle, transparent 1%, rgb(255, 235, 235) 1%) center/15000%;
+  }
+
+  #sidebar ul li a:active {
+    background-color: rgb(251, 221, 221);
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+  #sidebar ul li.active > a, a[aria-expanded="true"] {
+      color: rgb(255, 161, 161);
+  }
+
+  @media screen and (max-width: 769px) {
+    .wrapper{
+      display:block;
+    }
+
+    #sidebar .sidebar-header {
+      display:none;
+    }
+
+    #sidebar {
+      min-width: 100%;
+      max-width: 100%;
+      border-top: 4px solid rgb(255, 199, 199);
+      border-right: 2px solid rgb(255, 199, 199);
+      height:85px;
+    }
+
+    #sidebar ul li{
+      border-bottom:none;
+      border-left:3px solid white;
+      margin: 0px;
+      display: inline-block;
+    }
+
+    .categories{
+      overflow-x:auto;
+      overflow-y:hidden;
+      white-space: nowrap;
+      max-height:100%;
+      direction: ltr;
+    }
+
+  }
+
+
+  .item-card, .item-card:hover, .item-card:focus, .item-card:active{
+    text-decoration:none;
+    color: inherit;
+  }
+
+  .item-card img{
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  .item-card:hover img{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .card-image{
+    overflow:hidden;
+    width: 100%;
+    height:auto;
+  }
+
+  /*Image Adjustment*/
+  .img-col{
+  flex: 0 1 25%;
+  max-width:200px !important;
+  min-height:auto !important;
+}
+
+  .add-to-cart-btn{
+    background-color:#ff6f80;
+    text-decoration: none;
+    color:white;
+    font-weight:bold;
+    padding: 0.4em 1em;
+    position: relative;
+    text-align: center;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    border-radius: 4em;
+    font-size: 16px;
+  }
+
+  .add-to-cart-btn:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 10px 40px rgb(255, 216, 216);
+  }
+  
+  .add-to-cart-btn:active:after {
+    box-shadow: 0 0 0 0 rgb(179, 179, 179);
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    opacity: 1;
+    transition: 0s;
+  }
+  
+  .add-to-cart-btn:active {
+    top: 1px;
+  }
+
+  /*Quantity Chooser*/
+  span {cursor:pointer; }
+		.minus, .plus{
+			width:50px;
+			height:30px;
+			background:#ff6f80;
+      color:white;
+			border-radius:1em;
+      font-weight:bold;
+			border:1px solid #ddd;
+      display: inline-block;
+      vertical-align: middle;
+      position:relative;
+      text-align: center;
+      transition-duration: 0.4s;
+      -webkit-transition-duration: 0.4s; /* Safari */
+		}
+
+    .minus:after, .plus:after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 1em;
+      left: 0;
+      top:0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.5s;
+      box-shadow: 0 0 10px 40px rgb(255, 216, 216);
+      background:#ff6f80;
+    }
+    
+    .minus:active:after, .plus:active:after {
+      box-shadow: 0 0 0 0 rgb(179, 179, 179);
+      position: absolute;
+      background:#ff6f80;
+      border-radius: 1em;
+      left: 0;
+      top:0;
+      opacity: 1;
+      transition: 0s;
+    }
+    
+    .minus:active, .plus:active {
+      top: 1px;
+    }
+
+		.quantitynumber{
+			height:34px;
+      width: 100px;
+      text-align: center;
+      font-size: 16px;
+			border:1px solid rgb(247, 179, 179);
+			border-radius:4px;
+      display: inline-block;
+      pointer-events:none;
+    }
+
+    .previous {
+      color: black;
+      display:block;
+    }
+
+    .previous, .previous:hover, .previous:focus, .previous:active{
+      text-decoration:none;
+      color: inherit;
+    }
+
+    .card-product{
+      border: none;
+      overflow: hidden;
+    }
+    
+    .card-container{
+      background-color: white;
+    }
+
+/*Custom Menu*/
+label {
+  cursor: pointer;
+}
+
+label:hover {
+  border:3px solid rgb(134, 134, 255) !important;
+  border-radius:8px;
+}
+
+input[type="radio"]:checked + label {
+  opacity: 0.3;
+  border:3px solid rgb(134, 134, 255) !important;
+  border-radius:8px;
+}
+
+.card > .card-image > img{
+  transition: transform 1s;
+}
+
+input[type="radio"]:checked + label > .card > .card-image > img{
+  transform:scale(1.1);
+}
+
+input[type="radio"]:checked + label +.tick-container{
+  opacity: 1;
+  display: block;
+}
+/*ANIMATION */
+
+.tick-container {
+  transition: .5s ease;
+  display:none;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+  text-align: center;
+}
+.tick {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 6px 12px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+/*Image Header*/
+.createsushi-header {
+  height: 25vh;
+  background-image: url('/images/wooden-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.create-sushi-container{
+  -webkit-touch-callout: none; /* iOS Safari */ 
+  -webkit-user-select: none; /* Safari */      
+  -khtml-user-select: none; /* Konqueror HTML */        
+  -moz-user-select: none; /* Old versions of Firefox */         
+  -ms-user-select: none; /* Internet Explorer/Edge */             
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media screen and (max-width: 768px) {
+  .createsushi-header-text{
+      font-size:20px !important;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .createsushi-header-text{
+      font-size:18px !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .createsushi-header-text{
+      font-size:15px !important;
+  }
+}
+
+.ml16 {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  overflow: hidden;
+}
+
+.ml16 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+@media screen and (max-width: 280px) {
+  .createsushi-header-text{
+      font-size:13px !important;
+  }
+}
+
+
+
+
+/*Sushi Create Page Quantity*/
+
+@media screen and (max-width: 640px) {
+  .btn-minus, .btn-plus{
+      display:none !important;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+#customquantity input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+#customquantity input[type=number] {
+  -moz-appearance: textfield;
+}
