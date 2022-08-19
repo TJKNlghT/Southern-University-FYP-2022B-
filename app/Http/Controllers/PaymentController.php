@@ -91,6 +91,7 @@ class PaymentController extends Controller
             'status' => 'Paid',
             'total' => $totalPrice + 1.30,
             'timeselect' => $timeString,
+            'email' => $request->email,
         ]);
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -157,7 +158,6 @@ class PaymentController extends Controller
                 'description' => $itemDesc,
                 'price' => $itemPrice,
                 'quantity' => $itemQuantity,
-                'timeselect' => $request->timepicker,
             ]);
 
         }
@@ -178,6 +178,7 @@ class PaymentController extends Controller
             'status' => 'Unpaid',
             'total' => $totalPrice + 1.30,
             'timeselect' => $timeString,
+            'email' => $request->email,
         ]);
 
         Session::flash('success', 'Please go to counter paid your orders!');

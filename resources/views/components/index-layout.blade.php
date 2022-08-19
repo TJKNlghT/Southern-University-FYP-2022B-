@@ -16,7 +16,7 @@
         <!-- Navbar -->
         <nav class="navbar shadow navbar-light">
             <div class="container">
-                <a class="navbar-brand" href="/home">
+                <a class="navbar-brand" href="/">
                     <img class="img-fluid" id="sushi-logo" src="{{asset('images/logo.png')}}" alt="sushi logo"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,16 +27,20 @@
                     <li class="nav-item">
                         @guest
                             @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link mx-2" href="{{route('viewtrackorder')}}"><i class="fas fa-history pe-2"></i>Track Order</a>
+                                </li>
+                                
                                 <li class="nav-item mr-3">
                                     <a class="btn btn-black btn-rounded" href="{{ route('login') }}"><i class="fas fa-sign-in pe-2"></i>Log In</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link mx-2" href="/adminportal"><i class="fas fa-user pe-2"></i>Admin Portal</a>
+                                <a class="nav-link mx-2" href="{{route('adminportal')}}"><i class="fas fa-user pe-2"></i>Admin Portal</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-2" href="/orderhistory"><i class="fas fa-history pe-2"></i>Order History</a>
+                                <a class="nav-link mx-2" href="{{route('viewtrackorder')}}"><i class="fas fa-history pe-2"></i>Track Order</a>
                             </li>
                             <li class="nav-item dropdown mr-3">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color: black;text-decoration:none;">

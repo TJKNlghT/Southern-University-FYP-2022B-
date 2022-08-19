@@ -16,6 +16,7 @@ class CreateOrderHistoriesTable extends Migration
         Schema::create('order_histories', function (Blueprint $table) {
             $table->id();
             $table->integer("orderid")->unsigned();
+            $table->string("email");
             $table->string("status");
             $table->double("total", 8,2);
             $table->string("timeselect");

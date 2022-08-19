@@ -76,7 +76,7 @@
                                             @if($latestorder->status == 'Unpaid')
                                                 <span class="badge badge-pill bg-danger">{{$latestorder->status}}</span>
                                             @elseif($latestorder->status == 'Paid')
-                                                <span class="badge badge-pill bg-warning">{{$latestorder->status}}</span>
+                                                <span class="badge badge-pill bg-danger">{{$latestorder->status}}</span>
                                             @endif
                                         </td>
                                         <td>
@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <h5 class="title">Recent Delivered</h5>
+                        <h5 class="title">Ongoing Orders</h5>
                         <div class="md-card por">
                         <table class="table table-hover no-border"> 
                             <thead>
@@ -104,13 +104,16 @@
                                 </tr>
                             </thead>                       
                             <tbody>
-                                @foreach($latestdeliveredorders as $deliveredorder)
+                                @foreach($latestongoingorders as $ongoingorder)
                             <tr class="">
-                                <td>{{$deliveredorder->updated_at->format('H:i:s')}}</td>
-                                <td>{{$deliveredorder->orderid}}</td>
-                                <td>{{$deliveredorder->total}}</td>
+                                <td>{{$ongoingorder->updated_at->format('H:i:s')}}</td>
+                                <td>{{$ongoingorder->orderid}}</td>
+                                <td>{{$ongoingorder->total}}</td>
                                 <td>
-                                    <span class="badge badge-pill bg-success">{{$deliveredorder->status}}</span>
+                                    <span class="badge badge-pill bg-warning">{{$ongoingorder->status}}</span>
+                                </td>
+                                <td>
+                                    <a class="text-decoration-none text-black" href="{{ route('vieworder', ['id' => $ongoingorder->orderid]) }}">View &nbsp;<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a> 
                                 </td>
                             </tr>
                                 @endforeach
@@ -147,6 +150,72 @@
                                 });
                             </script>
                         </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5 class="title">Serving Orders</h5>
+                        <div class="md-card por">
+                        <table class="table table-hover no-border"> 
+                            <thead>
+                                <tr>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>                       
+                            <tbody>
+                                @foreach($latestservingorders as $servingorder)
+                            <tr class="">
+                                <td>{{$servingorder->updated_at->format('H:i:s')}}</td>
+                                <td>{{$servingorder->orderid}}</td>
+                                <td>{{$servingorder->total}}</td>
+                                <td>
+                                    <span class="badge badge-pill bg-success">{{$servingorder->status}}</span>
+                                </td>
+                                <td>
+                                    <a class="text-decoration-none text-black" href="{{ route('vieworder', ['id' => $servingorder->orderid]) }}">View &nbsp;<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a> 
+                                </td>
+                            </tr>
+                                @endforeach
+                            </tbody>
+                        </table>                            
+                    </div>
+                </div>
+            </section>
+
+            <section class="spacethis px-3">
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5 class="title">Recent Delivered</h5>
+                        <div class="md-card por">
+                        <table class="table table-hover no-border"> 
+                            <thead>
+                                <tr>
+                                    <th scope="col">Time</th>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>                       
+                            <tbody>
+                                @foreach($latestdeliveredorders as $deliveredorder)
+                            <tr class="">
+                                <td>{{$deliveredorder->updated_at->format('H:i:s')}}</td>
+                                <td>{{$deliveredorder->orderid}}</td>
+                                <td>{{$deliveredorder->total}}</td>
+                                <td>
+                                    <span class="badge badge-pill bg-success">{{$deliveredorder->status}}</span>
+                                </td>
+                            </tr>
+                                @endforeach
+                            </tbody>
+                        </table>                            
                     </div>
                 </div>
             </section>

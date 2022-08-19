@@ -27,6 +27,13 @@
                             @csrf
                             <input type="hidden" id="a" name="itemArray" value="">
                             <div class="col-12">
+                                <label class="form__label">Email</label>
+                                <div class="form__div">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
                                 <label class="form__label">Time</label>
                                 <div class="form__div">
                                     <input type="time" name="timepicker" class="form-control text-center" required>
@@ -59,6 +66,13 @@
                             {{-- Hidden Input --}}
                             <input type="hidden" id="b" name="itemArray" value="">
                             <div class="row pt-2">
+                                <div class="col-12">
+                                    <label class="form__label">Email</label>
+                                    <div class="form__div">
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required>
+                                    </div>
+                                </div>
+
                                 <div class="col-12">
                                         <label class="form__label">Time</label>
                                     <div class="form__div">

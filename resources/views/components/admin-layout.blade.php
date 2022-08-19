@@ -39,11 +39,17 @@
                                 @endif
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link mx-2" href="/adminportal"><i class="fas fa-user pe-2"></i>Admin Portal</a>
+                                    <a class="nav-link mx-2" href="/"><i class="fas fa-home pe-2"></i>Home</a>
                                 </li>
+                                
                                 <li class="nav-item">
-                                    <a class="nav-link mx-2" href="/orderhistory"><i class="fas fa-history pe-2"></i>Order History</a>
+                                    <a class="nav-link mx-2" href="{{route('adminportal')}}"><i class="fas fa-user pe-2"></i>Admin Portal</a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link mx-2" href="{{route('viewtrackorder')}}"><i class="fas fa-history pe-2"></i>Track Order</a>
+                                </li>
+                                
                                 <li class="nav-item dropdown mr-3">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color: black;text-decoration:none;">
                                         {{ Auth::user()->name }}

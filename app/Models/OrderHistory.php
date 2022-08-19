@@ -9,6 +9,7 @@ class OrderHistory extends Model
 {
     protected $fillable = [
         'orderid',
+        'email',
         'total',
         'status',
         'timeselect',

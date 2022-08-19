@@ -78,6 +78,11 @@ Route::get('/viewReviews/all/foodreviews/delete{id}', [AdminController::class, '
 Route::get('/viewReviews/all/orderreviews', [AdminController::class, 'viewallorderreviews'])->name('viewallorderreviews')->middleware('auth');
 Route::get('/viewReviews/all/orderreviews/delete{id}', [AdminController::class, 'deleteorderreview'])->name('deleteorderreview')->middleware('auth');
 
+//Search Order
+Route::get('/trackorder', [MenuController::class, 'viewtrackorder'])->name('viewtrackorder');
+Route::post('/trackorder/search', [MenuController::class, 'searchtrackorder'])->name('searchEmail');
+Route::get('/trackorder/view/{id}', [MenuController::class, 'viewsingletrackorder'])->name('viewsingletrackorder');
+
 //----------------------------------------DEFAULT MENU CRUD
 
 Route::get('/product/show', [ProductController::class, 'view'])->name('viewAdminProduct')->middleware('auth');

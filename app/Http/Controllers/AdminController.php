@@ -167,6 +167,8 @@ class AdminController extends Controller
             'deliveredcounter' => $deliveredcounter,
             'totalsalescounter' => $totalsalescounter,
             'latestorders' => OrderHistory::Latest()->where('status', 'Unpaid')->orWhere('status', 'Paid')->take(5)->get(),
+            'latestongoingorders' => OrderHistory::orderBy('updated_at', 'DESC')->where('status', 'Ongoing')->take(5)->get(),
+            'latestservingorders' => OrderHistory::orderBy('updated_at', 'DESC')->where('status', 'Serving')->take(5)->get(),
             'latestdeliveredorders' => OrderHistory::orderBy('updated_at', 'DESC')->where('status', 'Completed')->take(5)->get(),
             'totalsalesamount' => $totalsalesamount,
             'jan' => $jan,
@@ -187,7 +189,9 @@ class AdminController extends Controller
     public function viewmanageorder(){
 
         return view('admin.manageorder', [
-            'orderhistories' => OrderHistory::Oldest()->where('status', 'Unpaid')->orWhere('status', 'Paid')->paginate(15)
+            'orderhistoriesnew' => OrderHistory::Oldest()->where('status', 'Unpaid')->orWhere('status', 'Paid')->paginate(5),
+            'orderhistoriesongoing' => OrderHistory::Oldest()->where('status', 'Ongoing')->paginate(5),
+            'orderhistoriesserving' => OrderHistory::Oldest()->where('status', 'Serving')->paginate(5),
         ]);
     }
 
@@ -217,8 +221,15 @@ class AdminController extends Controller
             'status' => $r->orderstatus,
         ]);
 
-        Session::flash('success', 'Order managed! To view, head to order history.');
-
+        if($r->orderstatus == 'Ongoing'){
+            Session::flash('success', 'Order updated to started.');
+        } else if ($r->orderstatus == 'Serving') {
+            Session::flash('success', 'Order updated to serving.');
+        } else if ($r->orderstatus == 'Completed') {
+            Session::flash('success', 'Order updated to completed! Order has been moved to order history.');
+        } else {
+            Session::flash('success', 'Order updated to cancelled! Order has been moved to order history.');
+        }
         return redirect()->route('manageorder');
     }
 

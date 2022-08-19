@@ -6,9 +6,11 @@ use App\Models\Review;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\FoodReview;
+use App\Models\OrderHistory;
 use Illuminate\Http\Request;
 use App\Models\CustomProduct;
 use App\Models\CustomCategory;
+use App\Models\OrderItems;
 
 class MenuController extends Controller
 {
@@ -110,5 +112,48 @@ class MenuController extends Controller
         FoodReview::create($formFields);
 
         return redirect()->route('indexBeforeLogin');
+    }
+
+
+    //Search Order
+    public function searchtrackorder(){
+        $r= request();
+
+        $keyword = $r->searchemail;
+
+        $order = OrderHistory::latest()
+        ->where('email', $keyword)
+        ->Where('status', '!=' , 'Completed')
+        ->Where('status', '!=' , 'Cancelled')
+        ->paginate(10);
+        
+        return view('menus.trackorder')->with('orders', $order);
+    }
+
+    //Search Order
+    public function viewtrackorder(){
+        $order = OrderHistory::where('status', 'nothing')->paginate(10);
+
+        return view('menus.trackorder')->with('orders', $order);
+    }
+
+    public function viewsingletrackorder($id) {
+
+        $viewOrder = OrderHistory::all()->where('orderid', $id);
+        $viewOrderItems = OrderItems::all()->where('orderid', $id);
+
+        $subTotal = 0;
+        $total = 0;
+        
+        foreach($viewOrderItems as $item) {
+            $subTotal += ($item->quantity * $item->price);
+        }
+
+        $total = $subTotal + 1.30;
+        
+        return view('menus.vieworder')->with('orderhistory', $viewOrder)
+        ->with('orderhistoryitems', $viewOrderItems)
+        ->with('total', $total)
+        ->with('subtotal', $subTotal);
     }
 }
