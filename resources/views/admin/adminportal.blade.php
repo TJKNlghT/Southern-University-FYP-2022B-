@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h5 class="title">
-                        New Orders
+                        Current Time
                         <div class="card bg-light">
                             <h3 class="card-title text-center">
                             <div class="d-flex flex-wrap justify-content-center mt-2">
@@ -54,6 +54,9 @@
                             </div>
                             </h3>
                         </div>
+                        </h5>
+                        <h5 class="title">
+                            New Orders
                         </h5>
                         <div class="md-card">
                             <table class="table table-hover no-border">

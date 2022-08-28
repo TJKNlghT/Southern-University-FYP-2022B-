@@ -75,14 +75,14 @@
                     <form action="{{route('updateorder')}}" Method="POST" enctype="multipart/form-data">
                         @csrf
                         <div>
-                            @if($orderhistorys->status == 'Serving')
+                            @if($orderhistorys->status == 'Ready')
                                 <input type="hidden" name="orderstatus" value="Completed"/>
                                 <input type="hidden" name="orderid" value="{{$orderhistorys->orderid}}"/>
                                 <button type="submit" class="btn btn-success btn-md btn-block text-center">
                                 Complete Order &nbsp;<span><i class="fa fa-check"></i></span>
                                 </button>
                             @elseif($orderhistorys->status == 'Ongoing')
-                                <input type="hidden" name="orderstatus" value="Serving"/>
+                                <input type="hidden" name="orderstatus" value="Ready"/>
                                 <input type="hidden" name="orderid" value="{{$orderhistorys->orderid}}"/>
                                 <button type="submit" class="btn btn-success btn-md btn-block text-center">
                                 Serve Order &nbsp;<span><i class="fa fa-check"></i></span>
@@ -96,7 +96,8 @@
                             @endif
                         </div>
                     </form>
-
+                    @endforeach
+                    
                     <form action="{{route('updateorder')}}" Method="POST" enctype="multipart/form-data">
                         @csrf
                         <div>
@@ -107,7 +108,6 @@
                             </button>
                         </div>
                     </form>
-                    @endforeach
                 </div>
             </div>
         </div>

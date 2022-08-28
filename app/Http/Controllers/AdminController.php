@@ -191,7 +191,7 @@ class AdminController extends Controller
         return view('admin.manageorder', [
             'orderhistoriesnew' => OrderHistory::Oldest()->where('status', 'Unpaid')->orWhere('status', 'Paid')->paginate(5),
             'orderhistoriesongoing' => OrderHistory::Oldest()->where('status', 'Ongoing')->paginate(5),
-            'orderhistoriesserving' => OrderHistory::Oldest()->where('status', 'Serving')->paginate(5),
+            'orderhistoriesserving' => OrderHistory::Oldest()->where('status', 'Ready')->paginate(5),
         ]);
     }
 
@@ -223,8 +223,8 @@ class AdminController extends Controller
 
         if($r->orderstatus == 'Ongoing'){
             Session::flash('success', 'Order updated to started.');
-        } else if ($r->orderstatus == 'Serving') {
-            Session::flash('success', 'Order updated to serving.');
+        } else if ($r->orderstatus == 'Ready') {
+            Session::flash('success', 'Order updated to ready.');
         } else if ($r->orderstatus == 'Completed') {
             Session::flash('success', 'Order updated to completed! Order has been moved to order history.');
         } else {

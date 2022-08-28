@@ -105,7 +105,7 @@
 
 
                     <div class="col-md-10 pt-5">
-                        <h4 class="pb-3 border-bottom">Serving Orders</h4>
+                        <h4 class="pb-3 border-bottom">Ready Orders</h4>
                         <div class="rounded">
                             <div class="table-responsive table-borderless rounded-3 shadow">
                                 <table class="table">
@@ -120,7 +120,7 @@
                                     </thead>
                                     <tbody class="table-body text-center">
                                         @foreach($orderhistoriesserving as $orderhistory)
-                                            @if($orderhistory->status == 'Serving')
+                                            @if($orderhistory->status == 'Ready')
                                                 <tr class="cell-1">
                                                     <td class="text-center"></td>
                                                     <td>#{{$orderhistory->orderid}}</td>
